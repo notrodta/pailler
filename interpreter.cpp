@@ -72,10 +72,41 @@ int main () {
     for(int i = 0; i < tokens.size(); ++i)
     {
         for(int j = 0; j < tokens[i].size(); ++j)
-            cout << tokens[i][j];
-        cout << endl;
-    }	
+            cout << tokens[i][j] << " ";
+        //cout << endl;
+    }
+    cout << endl;
   
 
 	return 0;
 }
+
+
+
+/*TODO:
+ 
+ RMS:
+ • Load an input into memory: (id, yˆj ← wˆi).
+ • Add values in memory: (id, yˆk ← yˆi + yˆj ).
+ • Multiply value in memory by an input value: (id, yˆk ← wˆi · yˆj ). 
+ • Output value from memory, as element of Zβ: (id,β,Oˆj ← yˆi).
+ 
+ 
+ if current token read is add or multiply:
+ read next two token, check that it is a positive integer
+ call the actual function in paillier script
+ 
+ if current token read is save or load:
+ read only the next token, check that the value is a positive integer
+ 
+ 
+ 
+ save number
+ add number1 number2
+ mul number 1 number 2
+ load number
+ 
+ 
+ */
+
+
