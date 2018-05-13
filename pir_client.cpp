@@ -17,13 +17,24 @@
  ./pir_client z1.txt z2.txt
 */
 
+/*
+ using ntl:
+ g++ -g -O2 pir_client.cpp -o pir_client -lntl -lgmp -lm
+ ./pir_client
+ */
+
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
 #include <cstring>
 #include <cmath>
+#include <NTL/ZZ.h>
+#include <assert.h>
+#include <NTL/RR.h>
+
 using namespace std;
+using namespace NTL;
 
 
 //check to see if a certain file exists
@@ -90,16 +101,53 @@ void createShare2(string share)
     myfile.close();
 }
 
+// convert client index into binary
+string convert_index_to_binary(int client_index)
+{
+    string bin = "";
+    int num = client_index;
+    int rem;
+    
+    while (num != 0)
+    {
+        rem = num % 2;
+        num /= 2;
+        cout << rem << endl;
+        bin = to_string(rem) + bin;
+        //bin.set(i,rem);
+    }
+    return bin;
+}
+
+string encrypt_client_index_binary()
+{
+    
+    
+}
+
 
 int main (int argc, char** argv) {
+//    g++ pir_client.cpp -o pir_client
+//    ./pir_client
+    cout << convert_index_to_binary(6)<<endl;
 
-    createShare1("1");
-    createShare2("2");
     
-    cout << getAnswer(get_z(argv[1]), get_z(argv[2])) << endl;
-    
-	return 0;
+//------------------------------------------
+    // Test with hardcoded values:
+//    createShare1("-1");
+//    createShare2("2");
+//
+//    cout << getAnswer(get_z(argv[1]), get_z(argv[2])) << endl;
+//
+    return 0;
 }
+//TODO: add in encryption of client index
+
+/*
+1. convert index i into binary
+2. convert sk into binary
+ 
+ */
 
 
 

@@ -52,6 +52,7 @@ int getNumOfBitsForNum(int x)
     return floor(log2(x)) + 1;
 }
 
+//THIS IS WRONG! REDO
 //returns true if the databse index is the client's index
 //clientIndex needs to be encryted
 bool isClientIndex(int clientIndex, int databaseIndex, int share)
@@ -71,6 +72,12 @@ bool isClientIndex(int clientIndex, int databaseIndex, int share)
         else { n *= client[i];}
     }
     return n == 1;
+}
+
+//calculating z1 or z2 to send back to client
+int calculate_z()
+{
+    
 }
 
 //write z1 or z2 to textfile
@@ -103,6 +110,10 @@ void submitZtest(const char *fileName, const char *z)
 //    return false;
 //}
 
+
+// g++ pir_server.cpp -o pir_server
+// ./pir_server share1.txt z1.txt 100
+// ./pir_server share2.txt z2.txt 200
 
 int main (int argc, char** argv) {
 //    int balance[5] = {1,0,0,1,1};
